@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./index.css";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -18,9 +19,25 @@ function Home() {
     getProducts();
   }, []);
 
-  console.log({ products });
+  return (
+    <div className="wrapper">
+      {products.map((product, idx) => {
+        const { title, images, price } = product;
 
-  return <div>Home</div>;
+        const realText =
+          title.length > 10 ? `${title.slice(0, 10)} ...` : title;
+
+        return (
+          <div className="product" key={idx}>
+            <img className="product__img" src={images[0]} alt={title} />
+            <p className="product__title">{realText}</p>
+            <p className="product__price">{price}</p>
+            <button className="btn">Buy Now</button>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default Home;
