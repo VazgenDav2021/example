@@ -13,9 +13,13 @@ const Navbar = () => {
       <div className="mainNavigation">
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/cart">Cart</Link>
       </div>
     </div>
   );
 };
 
 export default Navbar;
+
+// 1. Переписать Link с помощю массива
+// 2. Отрисовать корзину с эелеметами (стили не важны, фотка, имя, цена, цена со скодкой)
